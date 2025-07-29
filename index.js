@@ -2,12 +2,22 @@ const output = document.getElementById("output");
 
 // function for double log
 const log = (message) => {
-    // show in console
-    console.log(message); 
-    // show on page
-    const p = document.createElement("p"); 
-    p.textContent = message;
-    output.appendChild(p);
+    console.log(message);
+
+    const container = document.createElement("div");
+
+    // pretty-print if it's an object/array
+    if (typeof message === "object") {
+        const pre = document.createElement("pre");
+        pre.textContent = JSON.stringify(message, null, 2);
+        container.appendChild(pre);
+    } else {
+        const p = document.createElement("p");
+        p.textContent = message;
+        container.appendChild(p);
+    }
+
+    output.appendChild(container);
 };
 
 // create "hr" tag in output div
@@ -114,7 +124,10 @@ for(let i = 0; i < people.length; i++){
 
     // ignore Otto
     if (people[i].name == "Otto")
+	{
+		combinedAge += people[i].age;
         continue;
+	}
     // add random city  
     people[i].city = cities[Math.floor(Math.random() * cities.length)];
     // add title
@@ -128,7 +141,14 @@ for(let i = 0; i < people.length; i++){
     combinedAge += people[i].age;
 }
 
+// find average age
+averageAge = combinedAge / people.length;
+
+log("Task 1");
 log(people);
+separator();
+log("Average age: " + averageAge);
+separator();
 
 /******************************************************************************
 2.
