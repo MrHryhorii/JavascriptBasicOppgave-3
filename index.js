@@ -110,6 +110,26 @@ let combinedAge = 0;
 
 let averageAge = 0;
 
+for(let i = 0; i < people.length; i++){
+
+    // ignore Otto
+    if (people[i].name == "Otto")
+        continue;
+    // add random city  
+    people[i].city = cities[Math.floor(Math.random() * cities.length)];
+    // add title
+    people[i].title = people[i].male ? "Mr." : "Ms."
+    // add 2 to age
+    people[i].age = people[i].age + 2;
+    // add coding to hobbies as first
+    people[i].hobbies = ["coding"].concat(people[i].hobbies);
+
+    // get age of people
+    combinedAge += people[i].age;
+}
+
+log(people);
+
 /******************************************************************************
 2.
 
