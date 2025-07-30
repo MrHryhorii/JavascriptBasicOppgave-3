@@ -269,7 +269,40 @@ skal returnere "whao is ohe ptino tf ohis?"
 
 function doubleSwap(string, charA, charB) {
 	// Skriv koden for oppgave 4 her
+
+	// text to character array
+	const charArr = string.split("");
+	// array for changed characters
+	const updatedArr = [];
+
+	// check character and change if it needs
+	for(let char of charArr)
+	{
+		// current character
+		let checkChar = char;
+		// charA -> charB
+		if(checkChar == charA)
+		{
+			checkChar = charB;
+		}
+			// charB -> charA
+		else if(checkChar == charB)
+			{
+				checkChar = charA;
+			}
+		// put character into the new array
+		updatedArr.push(checkChar);
+	}
+
+	return updatedArr.join("");
 }
+
+
+log("Task 4");
+log("Text: this is a string -> " + doubleSwap("this is a string", "i", "s"));
+log("Text: m#ybe #nother #ppro#ch is necess#ry -> " + doubleSwap("m#ybe #nother #ppro#ch is necess#ry", "#", "a"));
+log("Text: what is the point of this? -> " + doubleSwap("what is the point of this?", "o", "t"));
+separator();
 
 /******************************************************************************
 5.
