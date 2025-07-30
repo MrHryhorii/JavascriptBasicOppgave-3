@@ -172,6 +172,27 @@ diceRoller(5, 20) skal returnere et array med 5 tilfeldige tall fra 1-20.
 
 // Skriv koden for oppgave 2 her
 
+// function with default parameters
+const diceRoller = (c = 5, v = 20) => {
+	// storage for dices
+	let arr = [];
+
+	// get a dice few times
+	for(i = 0; i < c; i++)
+	{
+		// get a side of dice from possible sides
+		let d = Math.floor(Math.random() * (v - 1)) + 1;
+		// put a dice in the storage
+		arr.push(d);
+	}
+
+	return arr;
+}
+
+log("Task 2");
+log(diceRoller());
+separator();
+
 /******************************************************************************
 3.
 
