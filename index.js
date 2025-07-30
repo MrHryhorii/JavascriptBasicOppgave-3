@@ -125,7 +125,7 @@ for(let i = 0; i < people.length; i++){
     // ignore Otto
     if (people[i].name == "Otto")
 	{
-		combinedAge += people[i].age;
+		//combinedAge += people[i].age;
         continue;
 	}
     // add random city  
@@ -142,7 +142,7 @@ for(let i = 0; i < people.length; i++){
 }
 
 // find average age
-averageAge = combinedAge / people.length;
+averageAge = combinedAge / people.length - 1;
 
 log("Task 1");
 log(people);
@@ -178,10 +178,10 @@ const diceRoller = (c = 5, v = 20) => {
 	const arr = [];
 
 	// get a dice few times
-	for(i = 0; i < c; i++)
+	for(let i = 0; i < c; i++)
 	{
 		// get a side of dice from possible sides
-		let d = Math.floor(Math.random() * (v - 1)) + 1;
+		let d = Math.floor(Math.random() * v) + 1;
 		// put a dice in the storage
 		arr.push(d);
 	}
@@ -355,7 +355,7 @@ const isInDict = (word) => {
 		italiensk: ["ciao"],
 		fransk: ["salut"],
 		tysk: ["hallo"],
-		spansk: ["spansk"],
+		spansk: ["hola"],
 		polsk: ["czesc", "cześć"]
 	};
 	// do we know language?
@@ -389,7 +389,7 @@ const helloChecker = (str) => {
 	let seekHello = false;
 
 	// check all words if one of them is a hello word
-	for(i = 0; i < wordArr.length; i++)
+	for(let i = 0; i < wordArr.length; i++)
 	{
 		// do we have a hello word?
 		isHello = isInDict(wordArr[i]);
