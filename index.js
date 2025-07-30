@@ -175,7 +175,7 @@ diceRoller(5, 20) skal returnere et array med 5 tilfeldige tall fra 1-20.
 // function with default parameters
 const diceRoller = (c = 5, v = 20) => {
 	// storage for dices
-	let arr = [];
+	const arr = [];
 
 	// get a dice few times
 	for(i = 0; i < c; i++)
@@ -219,6 +219,28 @@ skal returnere:
 ******************************************************************************/
 
 // Skriv koden for oppgave 3 her
+
+const task3arr = [" thIS", "teXt  ", " nEeds ", "to", "BE", "cleANED   ", " Up"];
+
+const arrayToText = (arr) => {
+	// updated array
+	const tempArr = [];
+	// result
+	let result = "";
+	// change every word from original array
+	for(let word of arr)
+	{
+		tempArr.push(word.trim().toLowerCase());
+	}
+	// convert array to string
+	result = tempArr.join(" ");
+	// send back text
+	return result;
+};
+
+log("Task 3");
+log(arrayToText(task3arr));
+separator();
 
 /******************************************************************************
 4.
