@@ -347,3 +347,75 @@ const greetings = [
 ];
 
 // Skriv koden for oppgave 5 her
+
+const isInDict = (word) => {
+	// hello dictionary
+	const helloDictionary = {
+		engelsk: "hello",
+		italiensk: "ciao",
+		fransk: "salut",
+		tysk: "hallo",
+		spansk: "spansk",
+		polsk: "czesc"
+	};
+	// do we know language?
+	let lang = false;
+	// change word to correct format
+	let checkHello = word.trim().toLowerCase();
+
+	// check all languages
+	for(let key in helloDictionary)
+	{
+		if(helloDictionary[key] == checkHello)
+		{
+			// save language
+			lang = key;
+		}
+		// stop checking
+		if(lang !== false) break;
+	}
+	// return result
+	return lang;
+};
+
+const helloChecker = (str) => {
+	// clean text
+	const cleanedText = str.replace(/[^A-Za-z]+/g, " ");
+	// string to array of words
+	const wordArr = cleanedText.split(" ");
+	// do we have a hello word
+	let isHello = false;
+	// what hello?
+	let seekHello = false;
+
+	// check all words if one of them is a hello word
+	for(i = 0; i < wordArr.length; i++)
+	{
+		// do we have a hello word?
+		isHello = isInDict(wordArr[i]);
+		// if yes -> stop search
+		if(isHello !== false) 
+		{
+			// save a hello word
+			seekHello = wordArr[i];
+			break;
+		}
+	}
+
+	// return message
+	if(isHello) return `"${seekHello}" oppdaget på ${isHello}.`;
+	return `Ingen HELLO oppdaget.`
+};
+
+const checkTextforHello = (arr) =>{
+	
+	for(let text of arr)
+	{
+		log(text + " -> " + helloChecker(text));
+	}
+}
+
+log("Task 5");
+//log(isInDict("ciao"));
+//log(helloChecker("Hello, how are you today?"));
+checkTextforHello(greetings);
