@@ -142,12 +142,12 @@ for(let i = 0; i < people.length; i++){
 }
 
 // find average age
-averageAge = combinedAge / people.length - 1;
+averageAge = combinedAge / (people.length - 1);
 
 log("Task 1");
 log(people);
 separator();
-log("Average age: " + averageAge);
+log("Average age: " + averageAge.toFixed(1));
 separator();
 
 /******************************************************************************
@@ -230,7 +230,8 @@ const arrayToText = (arr) => {
 	// change every word from original array
 	for(let word of arr)
 	{
-		tempArr.push(word.trim().toLowerCase());
+		let cleaned = word.trim().toLowerCase();
+        if (cleaned) tempArr.push(cleaned); // if not empty
 	}
 	// convert array to string
 	result = tempArr.join(" ");
@@ -383,7 +384,7 @@ const helloChecker = (str) => {
 	const cleanedText = str.replace(/[ ,.!?]/g, " ");
 	// string to array of words
 	const wordArr = cleanedText.split(" ");
-	// do we have a hello word
+	// do we have a hello word?
 	let isHello = false;
 	// what hello?
 	let seekHello = false;
