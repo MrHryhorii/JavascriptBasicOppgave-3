@@ -351,12 +351,12 @@ const greetings = [
 const isInDict = (word) => {
 	// hello dictionary
 	const helloDictionary = {
-		engelsk: "hello",
-		italiensk: "ciao",
-		fransk: "salut",
-		tysk: "hallo",
-		spansk: "spansk",
-		polsk: "czesc"
+		engelsk: ["hello"],
+		italiensk: ["ciao"],
+		fransk: ["salut"],
+		tysk: ["hallo"],
+		spansk: ["spansk"],
+		polsk: ["czesc", "cześć"]
 	};
 	// do we know language?
 	let lang = false;
@@ -366,7 +366,7 @@ const isInDict = (word) => {
 	// check all languages
 	for(let key in helloDictionary)
 	{
-		if(helloDictionary[key] == checkHello)
+		if(helloDictionary[key].includes(checkHello))
 		{
 			// save language
 			lang = key;
@@ -380,7 +380,7 @@ const isInDict = (word) => {
 
 const helloChecker = (str) => {
 	// clean text
-	const cleanedText = str.replace(/[^A-Za-z]+/g, " ");
+	const cleanedText = str.replace(/[ ,.!?]/g, " ");
 	// string to array of words
 	const wordArr = cleanedText.split(" ");
 	// do we have a hello word
